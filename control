@@ -1,0 +1,9 @@
+Package: com.xvalex.topemojixi
+Name: TopEmojiXI
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Your favorite emoji on the top of the LockScreen!
+Maintainer: X_vale_X
+Author: X_vale_X
+Section: Tweaks
