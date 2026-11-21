@@ -26,46 +26,23 @@ static void loadPrefs()
 - (void)viewDidLoad {
 	%orig;
 
-	
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.xvalex.topemojixi/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     loadPrefs();
+
     double x = [SCX doubleValue];
-
-    
     double y = [SCY doubleValue];
+
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, y, self.view.bounds.size.width, self.view.bounds.size.height)];
-
-
-if (SCisEnabled) {
-
-
-label.text = SCtext;
-
-} else
-{
-	label.text = nil;
-}
-label.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(35.0)];
-label.textColor = [UIColor whiteColor];
-label.textAlignment = NSTextAlignmentCenter;
-[self.view addSubview:label];
+	
+	if (SCisEnabled) {
+		label.text = SCtext;
+	} else {
+		label.text = nil;
+	}
+	
+	label.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(35.0)];
+	label.textColor = [UIColor whiteColor];
+	label.textAlignment = NSTextAlignmentCenter;
+	[self.view addSubview:label];
 }
 %end
-
-
-// %hook SBFLockScreenDateSubtitleView
-// -(void)setString:(NSString *)arg1
-// {
-//     %orig(@"M Facc a Taxi 🚖");
-// }
-// %end
-
-// %hook SBLockScreenBatteryChargingView
-// -(void)setPrimaryBatteryText:(id)arg1 forBattery:(id)arg2 
-// {
-//     %orig(@"PEDO", @"TAXI");
-// }
-// %end
-
-
-
